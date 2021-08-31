@@ -40,3 +40,19 @@ $ helm install my-release ingress-nginx/ingress-nginx
 # if error: https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster
 # gcloud container clusters upgrade <CLUSTER_NAME> --master --cluster-version 1.16
 ```
+
+Adding https support:
+
+```bash
+# on Google Cloud Console
+# https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
+$ kubectl create namespace cert-manager
+$ helm repo add jetstack https://charts.jetstack.io
+$ helm repo update
+$ helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v1.2.0 \
+  --create-namespace
+$ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2.0/cert-manager.crds.yaml
+```

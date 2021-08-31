@@ -1,0 +1,14 @@
+# https://cert-manager.io/docs/tutorials/acme/http-validation/#issuing-an-acme-certificate-using-http-validation
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: web-k8s-template-com-tls
+spec:
+  secretName: web-k8s-template-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: web-k8s-template.com
+  dnsNames:
+    - web-k8s-template.com
+    - www.web-k8s-template.com
