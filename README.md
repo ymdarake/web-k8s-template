@@ -17,7 +17,7 @@ $ travis encrypt-file service-account.json -r ymdarake/web-k8s-template
 $ rm service-account.json
 ```
 
-When setting secret env variables on clusters in Google Cloud Console:
+When setting clusters in Google Cloud Console:
 
 ```bash
 # setup project for our clusters
